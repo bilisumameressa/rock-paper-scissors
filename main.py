@@ -1,45 +1,47 @@
 import random
 
-user_choice = ""
-computer_choice = ""
-
-players = [
-    {
-        "type": "user",
-        "choice": user_choice
-    },
-    {
-        "type": "computer",
-        "choice": computer_choice
-    }
-]
-
-def winner(player1, player2):
-    if player1 == player2:
-        return False
-    elif player1 == "R":
-        if player2 == "P":
-            return player2
-        elif player2 == "S":
-            return player1
-    elif player1 == "P":
-        if player2 == "R"
-            return player1
-        elif player2 == "S":
-            return player2
-    elif player1 == "S":
-        if player2 == "P":
-            return player1
-        elif player2 == "R":
-            return player2
-
 def play():
     choices = ["R", "P", "S"]
-    computer_choice = random.choice(choices)
-    user_choice = input("R, P, S: ")
+    computer = random.choice(choices)
+    user = input("R, P, S: ")
+
+    draw_message = "Its a draw!"
+    user_wins_message = "You won!"
+    computer_wins_message = "Computer wins!"
     
-    print("You chose: " + user_choice)
-    print("Computer chose: " + computer_choice)
+    print("You chose: " + user)
+    print("Computer chose: " + computer)
+    
+    if  user == computer:
+        return draw_message
+    elif  user == "R":
+        if computer == "P":
+            return computer_wins_message
+        elif computer == "S":
+            return user_wins_message
+    elif user == "P":
+        if computer == "R":
+            return user_wins_message
+        elif computer == "S":
+            return computer_wins_message
+    elif user == "S":
+        if computer == "P":
+            return user_wins_message
+        elif computer == "R":
+            return computer_wins_message
+
+print(play())
+
+while True:
+    want_to_play = input("Press any key to play, Q to exit: ")
+    if want_to_play == "Q":
+        break
+    else:
+        print(play())
+
+    
+    
+    
     
     
 
